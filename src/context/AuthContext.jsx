@@ -18,7 +18,6 @@ export const AuthProvider = ({ children }) => {
         username,
         password,
       });
-
       if (response.status === 200) {
         setIsAuthenticated(true);
       }

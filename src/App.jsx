@@ -7,6 +7,7 @@ import {
 import "./App.css";
 import Login from "./pages/Login";
 import { useAuth, AuthProvider } from "./context/AuthContext";
+import Home from "./pages/Home";
 
 function App() {
    const { isAuthenticated } = useAuth();
@@ -14,7 +15,13 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route
+            path="/"
+            element={
+              isAuthenticated ? <Home /> : <Navigate to="/login" />
+            }
+          />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </>
